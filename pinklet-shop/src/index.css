@@ -1,0 +1,25 @@
+:root {
+  --colorPrimary: #492D1A;
+  --colorSecondary: #76553B;
+  --colorAccent: #D6B161;
+  --colorCard: #FFFFFF;
+  --colorBackground: #E7DDD3;
+
+  --textPrimary: #2C2C2C;
+  --textSecondary: #7A7A7A;
+  
+  --colorSuccess: #81C784;
+  --colorError: #E57373;
+  
+  --fontFamily: 'Poppins', sans-serif;
+  
+  --spaceSm: 8px;
+  --spaceMd: 16px;
+  --spaceLg: 24px;
+  
+  --radiusSm: 4px;
+  --radiusMd: 8px;
+  
+  --shadowMd: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+

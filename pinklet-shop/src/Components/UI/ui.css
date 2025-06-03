@@ -1,0 +1,63 @@
+/* Buttons */
+.btn {
+  padding: var(--spaceSm) var(--spaceMd);
+  font-weight: 500;
+  border-radius: var(--radiusSm);
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.btnPrimary {
+  background-color: var(--colorPrimary);
+  color: white;
+}
+
+.btnSecondary {
+  background-color: var(--colorSecondary);
+  color: white;
+}
+
+.btnOutline {
+  background-color: transparent;
+  border: 1px solid var(--colorPrimary);
+  color: var(--colorPrimary);
+}
+
+/* Headings */
+.heading1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--textPrimary);
+}
+.heading2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--textPrimary);
+}
+
+/* Text */
+.textSm { font-size: 0.85rem; color: var(--textSecondary); }
+.textMd { font-size: 1rem; color: var(--textPrimary); }
+.textLg { font-size: 1.25rem; font-weight: 500; color: var(--textPrimary); }
+
+/* Input */
+.inputField {
+  width: 100%;
+  padding: var(--spaceSm);
+  border-radius: var(--radiusSm);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.inputField:focus {
+  border-color: var(--colorPrimary);
+  outline: none;
+}
+
+/* Card */
+.cardContainer {
+  background: var(--colorCard);
+  border-radius: var(--radiusMd);
+  box-shadow: var(--shadowMd);
+  padding: var(--spaceMd);
+}
