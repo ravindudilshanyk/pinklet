@@ -20,6 +20,17 @@
     border: 1px solid #CCCCCC;
     border-radius: 15px;
 }
+.PasswordResetFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 60vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
 .loginFormField{
     width:100%
 }
@@ -50,6 +61,18 @@
     align-items: center;
     justify-content: center;
   }
+  .showPasswordToggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  
   .RegiinputGroup{
     position: relative;
     width: 80%;
@@ -122,6 +145,26 @@ input[type="checkbox"]{
     color: var(--textPrimary);
     font-size: 0.8rem;
 }
+.form-message {
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .form-message.success {
+    background-color: #e6ffed;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+  }
+  
+  .form-message.error {
+    background-color: #ffe5e5;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+  }
+  
 .rememberMeSection{
     display: flex;
     align-items: center;
@@ -146,7 +189,6 @@ input[type="checkbox"]{
 }
 
 .loginbuttonField Button{
-    width: 80%;
     padding: 12px;
     border: none;
     border-radius: 12px;
@@ -156,11 +198,80 @@ input[type="checkbox"]{
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.PasswordResetbuttonField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.PasswordResetbuttonField Button{
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: var(--colorPrimary) 1px solid;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.otpVerificationSection{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.otpSentMessage{
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--textSecondary);
+}
+.verifyOTPButton{
+    width: 40%;
+}
 .loginButton{
+    width: 80%;
     background-color: var(--colorPrimary);
     color: var(--colorCard);
     margin-bottom: 1.5rem;
 }
+
+.sendOTPButton{
+    width: 40%;
+    background-color: var(--colorPrimary);
+    color: var(--colorCard);
+    margin-bottom: 1.5rem;
+}
+
+.sendOTPButton:disabled {
+    background-color: #cccccc;  /* Light gray */
+    cursor: not-allowed;
+    color: #666666;
+    border: none;
+    opacity: 0.8;
+  }
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #fff;
+    border-top: 3px solid #888;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
 
 .googleLoginButton{
     background-color: var(--colorCard);
@@ -207,6 +318,62 @@ input[type="checkbox"]{
     color: #827EEF;
     text-decoration: none;
 }
+.error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .success-banner {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+    font-size: 1rem;
+  }
+  
+  /* Show it when successMessage is not empty */
+  .success-banner-show {
+    top: 20px;
+  }
+  .error-banner {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+    font-size: 1rem;
+  }
+  .error-banner-show {
+    top: 20px;
+  }
+  .errorMessage {
+    text-align: left;
+    color: red;
+    margin-bottom: 10px;
+    max-width: 400px; /* adjust as needed */
+    margin: 0 auto 10px auto;
+    white-space: normal; /* allow text to wrap */
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+  
+
 
 @media screen and (max-width: 1024px) {
     .loginFormTitle {
@@ -307,4 +474,10 @@ input[type="checkbox"]{
     .bottomText {
         font-size: 0.8rem;
     }
+    .error-banner {
+          font-size: 0.8rem;
+      }
+      .success-banner {
+        font-size: 0.8rem;
+      }
   }

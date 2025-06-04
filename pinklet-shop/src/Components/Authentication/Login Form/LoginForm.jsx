@@ -1,73 +1,157 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
 import "./LoginForm.css";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useGoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 function LoginForm() {
-  return (
-    <>
-      <div className="loginFormSection">
-        <div className="loginFormTitle">
-          <span>Login</span>
-        </div>
-        <div className="loginFormField">
-          <form action="">
-            <div className="logininputField">
-              <div className="inputGroup">
-                <MdEmail className="inputIcon" />
-                <input
-                  name="email"
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                />
-              </div>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
+  
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        // Get access token
+        const { access_token } = tokenResponse;
 
-              <div className="inputGroup">
-                <RiLockPasswordFill className="inputIcon" />
-                <input
-                  name="password"
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                />
-              </div>
-            </div>
-            <div className="checkBoxField">
-              <div className="rememberMeSection">
-                <input type="checkbox" name="rememberMe" id="rememberMe" />
-                <label htmlFor="rememberMe">Remember Me</label>
-              </div>
-              <div className="forgorPasswordSection">
-                <a>Forgot Password?</a>
-              </div>
-            </div>
-            <div className="loginbuttonField">
-              <Button className="loginButton">Log in to My Account</Button>
-              <div className="loginDivider">
-                <hr />
-                <span>or continue with</span>
-                <hr />
-              </div>
-              <Button className="googleLoginButton">
-                <span className="googleButtonContent">
-                  <FcGoogle size={24} />
-                  <span>Log in with Google</span>
-                </span>
-              </Button>
-            </div>
-            <div className="bottomText">
-              <span>
-                New to Pinklet? <Link to={"/register"}><a>Create an Account</a></Link>
-              </span>
-            </div>
-          </form>
-        </div>
+        // Option 1: Get user info from Google directly
+        const { data: userInfo } = await axios.get(
+          'https://www.googleapis.com/oauth2/v3/userinfo',
+          {
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          }
+        );
+
+        const response = await axios.post('http://localhost:5159/api/Auth/google-login', userInfo);
+        console.log('Backend response:', response.data);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('email', response.data.email);
+        localStorage.setItem('name', response.data.name);
+
+        navigate("/dashboard");
+      } catch (error) {
+        console.error('Google login error:', error);
+      }
+    },
+    onError: (error) => {
+      console.error('Login Failed:', error);
+    },
+  });
+  const handleLogin = async (e) => {
+    console.log("1");
+    e.preventDefault();
+  
+    if (!email || !password) {
+      setErrorMsg("Please enter both email and password.");
+      return;
+    }
+    console.log("2");
+    try {
+      const response = await axios.post("http://localhost:5159/api/Auth/login", {
+        email,
+        password,
+      });
+      console.log("3");
+      const { token, email: userEmail, name } = response.data;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", userEmail);
+      localStorage.setItem("name", name);
+      
+      console.log("4");
+      navigate("/dashboard");
+    } catch (err) {
+      console.error("Login error:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setErrorMsg(err.response.data.message);
+      } else {
+        setErrorMsg("Something went wrong. Please try again later.");
+      }
+    }
+  };
+
+  return (
+    <div className="loginFormSection">
+      <div className="loginFormTitle">
+        <span>Login</span>
       </div>
-    </>
+      <div className="loginFormField">
+        <form onSubmit={handleLogin}>
+          <div className="logininputField">
+            <div className="inputGroup">
+              <MdEmail className="inputIcon" />
+              <input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="inputGroup">
+              <RiLockPasswordFill className="inputIcon" />
+              <input
+                name="password"
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+
+          {errorMsg && <p className="errorMessage">{errorMsg}</p>}
+
+          <div className="checkBoxField">
+            <div className="rememberMeSection">
+              <input type="checkbox" name="rememberMe" id="rememberMe" />
+              <label htmlFor="rememberMe">Remember Me</label>
+            </div>
+            <div className="forgorPasswordSection">
+              <Link to={"/forgetPw"}><a>Forgot Password?</a></Link>
+            </div>
+          </div>
+
+          <div className="loginbuttonField">
+            <Button className="loginButton" type="submit">
+              Log in to My Account
+            </Button>
+            <div className="loginDivider">
+              <hr />
+              <span>or continue with</span>
+              <hr />
+            </div>
+            <Button className="googleLoginButton" type="button" onClick={() => googleLogin()}>
+              <span className="googleButtonContent">
+                <FcGoogle size={24} />
+                <span>Log in with Google</span>
+              </span>
+            </Button>
+          </div>
+          <div className="bottomText">
+            <span>
+              New to Pinklet?{" "}
+              <Link to="/register">
+                <a>Create an Account</a>
+              </Link>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 
