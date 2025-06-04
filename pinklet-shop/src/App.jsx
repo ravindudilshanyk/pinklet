@@ -1,15 +1,18 @@
-import './App.css'
-import LoginForm from './Components/Authentication/LoginForm'
-import LoginPage from './Pages/LoginPage'
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './Pages/Login Page/LoginPage';
+import RegisterPage from './Pages/Register Page/RegisterPage';
+import './App.css';
 
 function App() {
-
   return (
-    <>
-      <h1>Hellow</h1>
-      
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      {/* 404 fallback route
+      <Route path="*" element={<NotFoundPage />} /> */}
+    </Routes>
+  );
 }
 
-export default App
+export default App;

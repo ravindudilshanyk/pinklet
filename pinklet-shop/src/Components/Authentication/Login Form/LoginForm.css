@@ -1,0 +1,310 @@
+.loginFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 65vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
+.RegsiterFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 85vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
+.loginFormField{
+    width:100%
+}
+.loginFormField form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logininputField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginFormTitle{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.inputGroup {
+    position: relative;
+    width: 80%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .RegiinputGroup{
+    position: relative;
+    width: 80%;
+    margin-bottom: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.inputIcon {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: var(--textSecondary);
+    font-size: 1.2rem;
+  }
+  
+  input[type="text"],input[type="email"],input[type="password"]{
+    width: 100%;
+    padding: 15px 12px 15px 50px;
+    margin-bottom: 1rem;
+    border: 1px solid #D6D6D6;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--textPrimary);
+}
+
+input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus{
+    outline: none;
+    border-color: var(--colorPrimary);
+}
+
+input::placeholder{
+    color: var(--textSecondary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.checkBoxField {
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.RegicheckBoxField{
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.checkBoxField label{
+    margin-left: 0.5rem;
+    color: var(--textPrimary);
+    font-size: 0.9rem;
+}
+.RegicheckBoxField label{
+    margin-left: 0.5rem;
+    color: var(--textPrimary);
+    font-size: 0.8rem;
+}
+.rememberMeSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.forgorPasswordSection{
+    color: #827EEF;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.termsSection{
+    color: #827EEF;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.loginbuttonField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginbuttonField Button{
+    width: 80%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: var(--colorPrimary) 1px solid;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.loginButton{
+    background-color: var(--colorPrimary);
+    color: var(--colorCard);
+    margin-bottom: 1.5rem;
+}
+
+.googleLoginButton{
+    background-color: var(--colorCard);
+    color: var(--colorPrimary);
+    margin-bottom: 2rem;
+}
+.googleButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .loginDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .loginDivider hr {
+    flex: 1;
+    height: 1px;
+    background-color: #76553b3d;
+    border: none;
+  }
+  
+  .loginDivider span {
+    color: #76553b80;
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  
+  .bottomText {
+    color: var(--textSecondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.bottomText a {
+    color: #827EEF;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .loginFormTitle {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .logininputField input,
+    .loginbuttonField Button {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .loginFormSection {
+        width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: none;
+      height: auto;
+    }
+    .RegsiterFormSection{
+        width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: none;
+      height: auto;
+    }
+  
+    .loginFormTitle {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .logininputField input,
+    .loginbuttonField Button {
+      font-size: 0.9rem;
+    }
+
+    .inputGroup {
+      width: 90%;
+      margin-bottom: 0.5rem;
+    }
+    .RegiinputGroup{
+        width: 90%;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"],input[type="email"],input[type="password"]{
+        padding: 15px 12px 15px 50px;
+        margin-bottom: 1rem;
+        border: 1px solid #D6D6D6;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        color: var(--textPrimary);
+    }
+    input[type="password"]{
+        margin-bottom: 0.5rem;
+    }
+    input::placeholder{
+        color: var(--textSecondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .checkBoxField{
+        width: 90%;
+    }
+    .RegicheckBoxField{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .checkBoxField label{
+        font-size: 0.8rem;
+    }
+    .RegicheckBoxField label{
+        font-size: 0.8rem;
+    }
+    .forgorPasswordSection{
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .termsSection{
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .loginbuttonField Button{
+        width: 90%;
+        padding: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+  
+    .loginDivider span {
+        font-size: 0.8rem;
+    }
+    .bottomText {
+        font-size: 0.8rem;
+    }
+  }

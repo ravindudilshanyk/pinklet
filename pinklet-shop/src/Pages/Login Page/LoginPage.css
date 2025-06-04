@@ -1,0 +1,75 @@
+.LoginPageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    background-color: #F7F7F7;
+}
+.LoginPageImage{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+}
+.LoginPageImageText{
+    position: absolute; 
+    z-index: 10;
+    text-align: left; 
+    bottom: 63%; 
+    left: 35%;
+}
+
+.LoginPageImageText h1{
+    color: var(--colorPrimary);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.LoginPageImageText p{
+    color: var(--textSecondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.LoginPageFormContainer{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .LoginPageContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .LoginPageImage {
+    display: none;
+  }
+
+  .LoginPageFormContainer {
+    width: 70%;
+    height: auto;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .LoginPageContainer {
+    padding: 1rem 0;
+  }
+
+  .LoginPageFormContainer {
+    width: 100%;
+  }
+}
