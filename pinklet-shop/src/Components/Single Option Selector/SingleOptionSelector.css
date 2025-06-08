@@ -1,0 +1,48 @@
+.SingleOptionSelectorContainer{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.optionContainer{
+    box-sizing: border-box;
+    min-width: 8rem;
+    height: 3rem;
+    padding: 5px 5px;
+    border: 2px solid var(--colorPrimary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: var(--colorPrimary);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.optionContainer:hover{
+    background-color: #76553b81;
+    border-color: #76553B;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.optionContainerSelected{
+    box-sizing: border-box;
+    min-width: 8rem;
+    height: 3rem;
+    padding: 5px 5px;
+    border: 2px solid #76553B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #76553B;
+    font-weight: 500;
+}

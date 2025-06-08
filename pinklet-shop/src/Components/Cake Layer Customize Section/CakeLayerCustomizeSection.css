@@ -1,0 +1,60 @@
+.CakeLayerCustomizeSection{
+    margin-top: 1rem;
+    width: 95%;
+    min-height:27vh;
+    border: 1px solid var(--colorPrimary);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.layerTitle{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--colorPrimary);
+    margin-bottom: 1rem;
+}
+.cakeLayerCustomize{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    color: var(--colorPrimary);
+}
+.cakeLayerCustomize1cloumn{
+    width: 25%;
+    height: 20vh;
+
+}
+.cakeLayerCustomize2cloumn{
+    width: 38%;
+    height: 20vh;
+}
+.cakeLayerCustomize3cloumn{
+    width: 33.33%;
+    height: 20vh;
+}
+.CakeSelectComp {
+    margin-bottom: 1rem;
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2376553b'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center; 
+    background-size: 1.2rem;
+    padding-right: 2rem;
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+    width: 8rem;
+    height: 2rem;
+    font-size: 0.92rem;
+    border-radius: 0.8rem;
+    padding-left: 0.5rem;
+    border: 1px solid var(--colorPrimary);
+}
