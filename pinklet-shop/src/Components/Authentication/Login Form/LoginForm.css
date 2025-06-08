@@ -1,0 +1,483 @@
+.loginFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 65vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
+.RegsiterFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 85vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
+.PasswordResetFormSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 60vh;
+    background-color: var(--colorCard);
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+}
+.loginFormField{
+    width:100%
+}
+.loginFormField form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logininputField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginFormTitle{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.inputGroup {
+    position: relative;
+    width: 80%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .showPasswordToggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  
+  .RegiinputGroup{
+    position: relative;
+    width: 80%;
+    margin-bottom: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.inputIcon {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: var(--textSecondary);
+    font-size: 1.2rem;
+  }
+  
+  input[type="text"],input[type="email"],input[type="password"]{
+    width: 100%;
+    padding: 15px 12px 15px 50px;
+    margin-bottom: 1rem;
+    border: 1px solid #D6D6D6;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--textPrimary);
+}
+
+input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus{
+    outline: none;
+    border-color: var(--colorPrimary);
+}
+
+input::placeholder{
+    color: var(--textSecondary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.checkBoxField {
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.RegicheckBoxField{
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.checkBoxField label{
+    margin-left: 0.5rem;
+    color: var(--textPrimary);
+    font-size: 0.9rem;
+}
+.RegicheckBoxField label{
+    margin-left: 0.5rem;
+    color: var(--textPrimary);
+    font-size: 0.8rem;
+}
+.form-message {
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .form-message.success {
+    background-color: #e6ffed;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+  }
+  
+  .form-message.error {
+    background-color: #ffe5e5;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+  }
+  
+.rememberMeSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.forgorPasswordSection{
+    color: #827EEF;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.termsSection{
+    color: #827EEF;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.loginbuttonField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginbuttonField Button{
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: var(--colorPrimary) 1px solid;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.PasswordResetbuttonField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.PasswordResetbuttonField Button{
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: var(--colorPrimary) 1px solid;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.otpVerificationSection{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.otpSentMessage{
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--textSecondary);
+}
+.verifyOTPButton{
+    width: 40%;
+}
+.loginButton{
+    width: 80%;
+    background-color: var(--colorPrimary);
+    color: var(--colorCard);
+    margin-bottom: 1.5rem;
+}
+
+.sendOTPButton{
+    width: 40%;
+    background-color: var(--colorPrimary);
+    color: var(--colorCard);
+    margin-bottom: 1.5rem;
+}
+
+.sendOTPButton:disabled {
+    background-color: #cccccc;  /* Light gray */
+    cursor: not-allowed;
+    color: #666666;
+    border: none;
+    opacity: 0.8;
+  }
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #fff;
+    border-top: 3px solid #888;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+.googleLoginButton{
+    background-color: var(--colorCard);
+    color: var(--colorPrimary);
+    margin-bottom: 2rem;
+}
+.googleButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .loginDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .loginDivider hr {
+    flex: 1;
+    height: 1px;
+    background-color: #76553b3d;
+    border: none;
+  }
+  
+  .loginDivider span {
+    color: #76553b80;
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  
+  .bottomText {
+    color: var(--textSecondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.bottomText a {
+    color: #827EEF;
+    text-decoration: none;
+}
+.error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .success-banner {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+    font-size: 1rem;
+  }
+  
+  /* Show it when successMessage is not empty */
+  .success-banner-show {
+    top: 20px;
+  }
+  .error-banner {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+    font-size: 1rem;
+  }
+  .error-banner-show {
+    top: 20px;
+  }
+  .errorMessage {
+    text-align: left;
+    color: red;
+    margin-bottom: 10px;
+    max-width: 400px; /* adjust as needed */
+    margin: 0 auto 10px auto;
+    white-space: normal; /* allow text to wrap */
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+  
+
+
+@media screen and (max-width: 1024px) {
+    .loginFormTitle {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .logininputField input,
+    .loginbuttonField Button {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .loginFormSection {
+        width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: none;
+      height: auto;
+    }
+    .RegsiterFormSection{
+        width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: none;
+      height: auto;
+    }
+  
+    .loginFormTitle {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .logininputField input,
+    .loginbuttonField Button {
+      font-size: 0.9rem;
+    }
+
+    .inputGroup {
+      width: 90%;
+      margin-bottom: 0.5rem;
+    }
+    .RegiinputGroup{
+        width: 90%;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"],input[type="email"],input[type="password"]{
+        padding: 15px 12px 15px 50px;
+        margin-bottom: 1rem;
+        border: 1px solid #D6D6D6;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        color: var(--textPrimary);
+    }
+    input[type="password"]{
+        margin-bottom: 0.5rem;
+    }
+    input::placeholder{
+        color: var(--textSecondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .checkBoxField{
+        width: 90%;
+    }
+    .RegicheckBoxField{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .checkBoxField label{
+        font-size: 0.8rem;
+    }
+    .RegicheckBoxField label{
+        font-size: 0.8rem;
+    }
+    .forgorPasswordSection{
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .termsSection{
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .loginbuttonField Button{
+        width: 90%;
+        padding: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+  
+    .loginDivider span {
+        font-size: 0.8rem;
+    }
+    .bottomText {
+        font-size: 0.8rem;
+    }
+    .error-banner {
+          font-size: 0.8rem;
+      }
+      .success-banner {
+        font-size: 0.8rem;
+      }
+  }
