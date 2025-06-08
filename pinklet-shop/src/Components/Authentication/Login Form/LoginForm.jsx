@@ -72,8 +72,8 @@ function LoginForm() {
       navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err);
-      if (err.response && err.response.data && err.response.data.message) {
-        setErrorMsg(err.response.data.message);
+      if (err.response && err.response.data) {
+        setErrorMsg(err.response.data);
       } else {
         setErrorMsg("Something went wrong. Please try again later.");
       }

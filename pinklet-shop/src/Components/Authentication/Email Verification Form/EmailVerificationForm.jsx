@@ -31,8 +31,8 @@ function EmailVerificationForm({ setIsOTPverified }) {
       setMessage("OTP has been sent successfully.");
       setMessageType("success");
     } catch (error) {
-      console.error("OTP send failed", error);
-      setMessage("Failed to send OTP. Please try again.");
+      console.error("OTP send failed", error.response.data);
+      setMessage(error.response?.data || "Failed to send OTP. Please try again.");
       setMessageType("error");
     } finally {
       setOTPsending(false);
@@ -60,7 +60,7 @@ function EmailVerificationForm({ setIsOTPverified }) {
       }
     } catch (error) {
       console.error("OTP verification failed", error);
-      setMessage("Verification failed. Please try again.");
+      setMessage(error.response?.data || "OTP verification failed. Please try again.");
       setMessageType("error");
     }
   };
