@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./ThreeDCakeCustomizerPage.css";
+import axios from "axios";
 import ThreeDCustomizerHeader from "../../Components/3D Customizer Header/ThreeDCustomizerHeader";
 import CustomizerSettingsSection from "../../Components/Customizer Settings Section/CustomizerSettingsSection";
 import SingleOptionSelector from "../../Components/Single Option Selector/SingleOptionSelector";
 import CakeLayerCustomizeSection from "../../Components/Cake Layer Customize Section/CakeLayerCustomizeSection";
+import ThreeDCakeViewer from "../../Components/3D Cake Viewer/ThreeDCakeViewer";
 
 function ThreeDCakeCustomizer() {
   const [openSection, setOpenSection] = useState(null);
@@ -13,7 +15,24 @@ function ThreeDCakeCustomizer() {
   const [NoLayers, setNoLayers] = useState("1 Layer");
   const [layersShape, setLayersShape] = useState("");
   const [icingType, setIcingType] = useState("");
+  const [LayerData, setLayerData] = useState(
+    Array.from({ length: parseInt(NoLayers.split(" ")[0]) }).map(
+      (_, index) => ({
+        LayerNo: index + 1,
 
+        LayerFlavor: "vanilla",
+        LayerHeight: "normal",
+        LayerColorizeType: "solid",
+        LayerSoidColor: "#ffffff",
+        LayerGradientColor1: "#ffffff",
+        LayerGradientColor2: "#000000",
+        LayerGradientDirection: "to right",
+        LayerPatternType: "stripes",
+        LayerPatternColor: "#ff0000",
+        LayerPatternBGColor: "#ffffff",
+      })
+    )
+  );
   const handleToggle = (sectionTitle) => {
     setOpenSection(openSection === sectionTitle ? null : sectionTitle);
   };
@@ -22,18 +41,74 @@ function ThreeDCakeCustomizer() {
   };
   const handleBaseShapeChange = (shape) => {
     setBaseShape(shape);
+    setBaseShapeSize('6"'); // Reset base shape size when base shape changes
   };
   const handleBaseShapeSizeChange = (size) => {
     setBaseShapeSize(size);
   };
   const handleNoLayersChange = (layers) => {
+    const newLayerCount = parseInt(layers.split(" ")[0]);
     setNoLayers(layers);
+
+    setLayerData((prevLayerData) => {
+      const newLayerData = [];
+      for (let i = 0; i < newLayerCount; i++) {
+        newLayerData[i] = prevLayerData[i] || {
+          LayerNo:i+1,
+          LayerFlavor: "vanilla",
+          LayerHeight: "normal",
+          LayerColorizeType: "solid",
+          LayerSoidColor: "#ffffff",
+          LayerGradientColor1: "#ffffff",
+          LayerGradientColor2: "#000000",
+          LayerGradientDirection: "to right",
+          LayerPatternType: "stripes",
+          LayerPatternColor: "#ff0000",
+          LayerPatternBGColor: "#ffffff",
+        };
+      }
+      return newLayerData;
+    });
   };
   const handleLayersShapeChange = (shape) => {
     setLayersShape(shape);
   };
   const handleIcingTypeChange = (type) => {
     setIcingType(type);
+  };
+  const handleLayerDataChange = (index, key, value) => {
+    const updatedLayerData = [...LayerData];
+    updatedLayerData[index][key] = value;
+    setLayerData(updatedLayerData);
+    // console.log("Updated Layer Data:", updatedLayerData);
+  };
+  const SaveCake = async(e) => {
+    e.preventDefault();
+    const cakeData = {
+      UserId: 0,
+      Occation: occation,
+      BaseShape: baseShape,
+      BaseShapeSize: baseShapeSize,
+      NoLayers:  parseInt(NoLayers.split(" ")[0]),
+      LayerShape: layersShape,
+      IcingType: icingType,
+      CakeLayers: LayerData,
+    };
+
+    console.log("Cake Data:", cakeData);
+    console.log(JSON.stringify(LayerData, null, 2));
+    try{
+      await axios.post("http://localhost:5159/api/CakeModel/",cakeData
+    ).then((response) => {
+        console.log("Cake data saved successfully:", response.data);
+      });
+    }catch(error){
+      console.error("Error saving cake data:", error);
+      alert("Failed to save cake data. Please try again.");
+      return;
+    }
+
+    alert("Cake has been added successfully!");
   };
 
   return (
@@ -128,12 +203,67 @@ function ThreeDCakeCustomizer() {
               <SingleOptionSelector
                 options={["Buttercream", "Fondant", "Whipped Cream", "Ganache"]}
                 handleOptionChange={handleIcingTypeChange}
-                option={icingType}/>
+                option={icingType}
+              />
               <p>Build Your Cake – Layer by Layer</p>
-              <CakeLayerCustomizeSection/>
+              {Array.from({ length: parseInt(NoLayers.split(" ")[0]) }).map(
+                (_, index) => (
+                  <CakeLayerCustomizeSection
+                    key={index}
+                    layerIndex={index + 1}
+                    LayerData={LayerData}
+                    handleLayerDataChange={handleLayerDataChange}
+                  />
+                )
+              )}
             </CustomizerSettingsSection>
+            <CustomizerSettingsSection
+              title="Toppers"
+              isOpen={openSection === "Toppers"}
+              onToggle={() => handleToggle("Toppers")}
+            >
+              <div className="topperSectionContainer">
+                <div className="topperSectionHeader">
+                  <p>Decorate with Fun Toppers</p>
+                  <div className="topperSectionSearchContainer">
+                    <input
+                      type="text"
+                      placeholder="Search for toppers..."
+                      className="topperSearchInput"
+                    />
+                  </div>
+                </div>
+                <div className="topperSection">
+                  <div className="topperItem">
+                    
+                  </div>
+                  <div className="topperItem">
+
+                  </div>
+                  <div className="topperItem">
+
+                  </div>
+                  <div className="topperItem">
+
+                  </div>
+                  <div className="topperItem">
+
+                  </div>
+                </div>
+              </div>
+            </CustomizerSettingsSection>
+            <button onClick={SaveCake} className="saveCakeBtn">Add Cake</button>
           </div>
-          <div className="CustomizerWindow"></div>
+          <div className="CustomizerWindow">
+            <ThreeDCakeViewer
+              baseShape={baseShape}
+              baseShapeSize={baseShapeSize}
+              NoLayers={NoLayers}
+              layersShape={layersShape}
+              icingType={icingType}
+              LayerData={LayerData}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import './App.css';
 import ConfirmMailPage from './Pages/Confirm Mail/ConfirmMailPage';
 import ForgetPasswordPage from './Pages/Forget Password Page/ForgetPasswordPage';
 import ThreeDCakeCustomizer from './Pages/3D Cake Customizer Page/ThreeDCakeCustomizerPage';
+import ThreeDCakeDisplayPage from './Pages/3D Cake Display Testing/ThreeDCakeDisplayPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/confirm-email" element={<ConfirmMailPage />} />
       <Route path="/forgetPw" element={<ForgetPasswordPage />} />
       <Route path="/3dcustomizer" element={<ThreeDCakeCustomizer />} />
+      <Route path="/3dDisplay" element={<ThreeDCakeDisplayPage/>} />
 
       {/* 404 fallback route
       <Route path="*" element={<NotFoundPage />} /> */}
