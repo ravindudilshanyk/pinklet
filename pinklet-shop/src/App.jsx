@@ -1,15 +1,27 @@
-import './App.css'
-import LoginForm from './Components/Authentication/LoginForm'
-import LoginPage from './Pages/LoginPage'
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './Pages/Login Page/LoginPage';
+import RegisterPage from './Pages/Register Page/RegisterPage';
+import './App.css';
+import ConfirmMailPage from './Pages/Confirm Mail/ConfirmMailPage';
+import ForgetPasswordPage from './Pages/Forget Password Page/ForgetPasswordPage';
+import ThreeDCakeCustomizer from './Pages/3D Cake Customizer Page/ThreeDCakeCustomizerPage';
+import ThreeDCakeDisplayPage from './Pages/3D Cake Display Testing/ThreeDCakeDisplayPage';
 
 function App() {
-
   return (
-    <>
-      <h1>Hellow</h1>
-      
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<ThreeDCakeCustomizer />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/confirm-email" element={<ConfirmMailPage />} />
+      <Route path="/forgetPw" element={<ForgetPasswordPage />} />
+      <Route path="/3dcustomizer" element={<ThreeDCakeCustomizer />} />
+      <Route path="/3dDisplay" element={<ThreeDCakeDisplayPage/>} />
+
+      {/* 404 fallback route
+      <Route path="*" element={<NotFoundPage />} /> */}
+    </Routes>
+  );
 }
 
-export default App
+export default App;
