@@ -90,7 +90,16 @@
     font-size: 1.2rem;
   }
   
-  input[type="text"],input[type="email"],input[type="password"]{
+.inputGroup input[type="text"],input[type="email"],input[type="password"]{
+    width: 100%;
+    padding: 15px 12px 15px 50px;
+    margin-bottom: 1rem;
+    border: 1px solid #D6D6D6;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--textPrimary);
+}
+.RegiinputGroup input[type="text"],input[type="email"],input[type="password"]{
     width: 100%;
     padding: 15px 12px 15px 50px;
     margin-bottom: 1rem;
