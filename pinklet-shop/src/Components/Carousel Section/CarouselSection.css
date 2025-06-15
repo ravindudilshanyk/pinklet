@@ -1,0 +1,109 @@
+.CarouselSection {
+    height: 92.5vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .CarouselSectionContent {
+    width: 100%;
+    height: 90%;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 2rem;
+    transition: opacity 1.5s ease-in-out;
+  }
+  
+  .carousel-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+  
+  .CarouselText {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+  
+  .CarouselTextTitle {
+    font-family: 'Jacques Francois', serif;
+    font-size: 2.1rem;
+    text-align: left;
+    font-weight: 300;
+    width: 40rem;
+  }
+  
+  .CarouselTextPara {
+    margin-top: 2rem;
+    width: 43rem;
+    font-size: 1rem;
+  }
+  
+  .DesignNowBtn {
+    margin-top: 1rem;
+    width: 15rem;
+    height: 2.7rem;
+    border: 1px solid #ffffff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .DesignNowBtn:hover {
+    background: rgba(255, 255, 255, 0.493);
+  }
+  
+  /* Animation states */
+  .fade-in {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+@media (max-width: 480px) {
+    .CarouselTextTitle {
+        font-size: 1.2rem;
+        width: 90%;
+    }
+  
+    .CarouselTextPara {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+  
+    .DesignNowBtn {
+        width: 12rem;
+        height: 2.5rem;
+        font-size: 0.9rem;
+    }
+
+    .CarouselText{
+        left: 53%;
+        top: 75%;
+    }
+}

@@ -1,0 +1,179 @@
+.PinkletItemCardContainer{
+    width: 18rem;
+    height: 28rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+    0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+.PinkletItemImg{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:aqua;
+    border-radius: 1rem 1rem 0 0;
+    position: relative;
+}
+
+.PinkletItemImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+}
+.trandingSection{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 8rem;
+    height: 1.6rem;
+    background-color: var(--colorBackground);
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.PinkletItemCardContent{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.PinkletCardPricing{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--colorSecondary);
+}
+.PinkletCardPricing hr{
+    width: 22%;
+    height: 0.125rem;
+    background-color: var(--colorSecondary);
+    border: none;
+}
+.PinkletCardTitle{
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--colorPrimary);
+    margin-top: -0.7rem;
+    margin-left: 1rem;
+}
+.PinkletCardTagContainer{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    margin-left: 1rem;
+}
+.PinkletCardTagSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3rem;
+}
+.PinkletCardTag{
+    width: auto;
+    height: auto;
+    background-color: var(--colorBackground);
+    color: var(--colorPrimary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+.ItemMartketHouse{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    color: var(--textSecondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.PinkletCardDeliverRateSection{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.PinkletCardDelivery{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    color: var(--textPrimary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.PinkletCardRate{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1em;
+    color: #D6B161;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+.PinkletAddToPackage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+}
+.PinkletAddToPackageBtn{
+    width: 50%;
+    height: 1.5rem;
+    background-color: #ffffff;
+    color: var(--colorPrimary);
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid var(--colorPrimary);
+    border-radius: 0.8rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+}
+.PinkletAddToPackageBtn:hover{
+    background-color: #76553b81;
+    color: #ffffff;
+    transition: all 0.1s ease-in-out;
+}
