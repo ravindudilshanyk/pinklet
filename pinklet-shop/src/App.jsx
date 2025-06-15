@@ -6,11 +6,12 @@ import ConfirmMailPage from './Pages/Confirm Mail/ConfirmMailPage';
 import ForgetPasswordPage from './Pages/Forget Password Page/ForgetPasswordPage';
 import ThreeDCakeCustomizer from './Pages/3D Cake Customizer Page/ThreeDCakeCustomizerPage';
 import ThreeDCakeDisplayPage from './Pages/3D Cake Display Testing/ThreeDCakeDisplayPage';
+import LandingPage from './Pages/Landing Page/LandingPage';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<ThreeDCakeCustomizer />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/confirm-email" element={<ConfirmMailPage />} />

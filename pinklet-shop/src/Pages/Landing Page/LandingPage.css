@@ -1,0 +1,68 @@
+.LandingPageContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7F7F7;
+
+}
+.LandingPageSection{
+    width: 80%;
+}
+
+.GiftCustomiztionLauncher{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.GiftCustomiztionLauncherContainer{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.GiftCustomiztionLauncherLeft, .GiftCustomiztionLauncherRight{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+}
+
+.GiftCustomiztionLauncherLeft h3{
+    font-size: 2.5rem;
+    color: var(--textPrimary);
+}
+.GiftCustomiztionLauncherLeft p{
+    font-size: 1.1rem;
+    color: var(--textSecondary);
+}
+.GiftCustomiztionLauncherBtn Button{
+    font-size: 1rem;
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+.GiftCustomiztionLauncherImg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.GiftCustomiztionLauncherImg img{
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+}
