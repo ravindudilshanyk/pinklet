@@ -10,9 +10,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useGoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -31,7 +30,6 @@ function RegisterForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [serverError, setServerError] = useState("");
 
-
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
@@ -40,7 +38,7 @@ function RegisterForm() {
 
         // Option 1: Get user info from Google directly
         const { data: userInfo } = await axios.get(
-          'https://www.googleapis.com/oauth2/v3/userinfo',
+          "https://www.googleapis.com/oauth2/v3/userinfo",
           {
             headers: {
               Authorization: `Bearer ${access_token}`,
@@ -49,16 +47,17 @@ function RegisterForm() {
         );
 
         // Send user info to backend
-        const response = await axios.post('http://localhost:5159/api/Auth/google-login', userInfo);
+        const response = await axios.post(
+          "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/google-login",
+          userInfo
+        );
 
         // Handle backend response
-        console.log('Backend response:', response.data);
+        console.log("Backend response:", response.data);
 
         // Optionally store token/user data in localStorage or context
-        localStorage.setItem('token', response.data.token);
-        setSuccessMessage(
-          "Your registration was successful"
-        );
+        localStorage.setItem("token", response.data.token);
+        setSuccessMessage("Your registration was successful");
         setFormData({
           fName: "",
           lName: "",
@@ -70,13 +69,12 @@ function RegisterForm() {
         setTimeout(() => {
           setSuccessMessage("");
         }, 5000);
-
       } catch (error) {
-        console.error('Google login error:', error);
+        console.error("Google login error:", error);
       }
     },
     onError: (error) => {
-      console.error('Login Failed:', error);
+      console.error("Login Failed:", error);
     },
   });
 
@@ -163,16 +161,18 @@ function RegisterForm() {
     if (Object.keys(validationErrors).length !== 0) return;
 
     try {
-      await axios.post("http://localhost:5159/api/Auth/register", {
-        FirstName: formData.fName,
-        LastName: formData.lName,
-        Email: formData.email,
-        Password: formData.password,
-        PhoneNumber: "",
-        Role: "",
-        Availability: "",
-      });
-
+      await axios.post(
+        "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/register",
+        {
+          FirstName: formData.fName,
+          LastName: formData.lName,
+          Email: formData.email,
+          Password: formData.password,
+          PhoneNumber: "",
+          Role: "",
+          Availability: "",
+        }
+      );
       setSuccessMessage(
         "Your registration was successful. Please check your inbox for the verification email."
       );
@@ -193,7 +193,7 @@ function RegisterForm() {
         setFormData((prev) => ({
           ...prev,
           email: "",
-        }));        
+        }));
         setTimeout(() => {
           setServerError("");
         }, 5000);
@@ -239,9 +239,13 @@ function RegisterForm() {
             {successMessage}
           </div>
         )}
-        {serverError && <div className={`error-banner ${
-              serverError ? "error-banner-show" : ""
-            }`}>{serverError}</div>}
+        {serverError && (
+          <div
+            className={`error-banner ${serverError ? "error-banner-show" : ""}`}
+          >
+            {serverError}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit}>
           <div className="logininputField">
@@ -349,10 +353,7 @@ function RegisterForm() {
 
           <div className="bottomText">
             <span>
-              Already have an account?{" "}
-              <Link to="/login">
-                <a>Sign in</a>
-              </Link>
+              Already have an account? <Link to="/login">Sign in</Link>
             </span>
           </div>
         </form>

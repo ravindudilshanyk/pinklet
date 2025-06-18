@@ -67,7 +67,7 @@ function PasswordResetForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5159/api/Auth/fpwd/reset",
+        "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/fpwd/reset",
         {
           Email: email,
           Password: password,

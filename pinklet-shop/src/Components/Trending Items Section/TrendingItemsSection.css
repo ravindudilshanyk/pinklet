@@ -84,3 +84,63 @@
     transform-origin: center;
     will-change: transform, z-index;
 }
+@media (max-width: 768px) {
+    .TrendingItemsSection {
+        height: 100vh;
+    }
+  
+    .TrendingItemsSectionContainer {
+        flex-direction: column;
+        width: 95%;
+        gap: 2rem;
+    }
+  
+    .TrendingItemSectionLeft,
+    .TrendingItemSectionRight {
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .TrendingItemSectionLeftContent {
+        text-align: center;
+    }
+  
+    .TrendingItemSectionLeftContent h3 {
+        font-size: 1.5rem;
+    }
+  
+    .TrendingItemSectionLeftContent p {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+  
+    .TrendingItemSectionNavi {
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+    }
+  
+    .TrendingItemSectionNaviBtn {
+        font-size: 2.5rem;
+    }
+  
+    .TrendingCardsWrapper {
+        padding-bottom: 1rem;
+        justify-content: flex-start;
+        gap: 0;
+        overflow: hidden;
+    }
+    .PinkletCardVisible {
+        scale: 0.8;
+    }
+    
+    .PinkletCardHidden {
+        scale: 0.8;
+    }
+    
+    .PinkletCardHidden2 {
+        scale: 0.8;
+    }
+}

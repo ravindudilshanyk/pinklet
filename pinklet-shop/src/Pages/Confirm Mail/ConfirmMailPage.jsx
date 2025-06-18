@@ -20,7 +20,7 @@ function ConfirmMailPage() {
 
     const verifyEmail = async () => {
       try {
-        const response = await axios.get(`http://localhost:5159/api/Auth/verify-email`, {
+        const response = await axios.get(`https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/verify-email`, {
           params: { token },
         });
 
@@ -52,7 +52,7 @@ function ConfirmMailPage() {
     </div>
       <h2>Email Confirmation</h2>
       <p className={status}>{message}</p>
-      <Button className="DashBtn" onClick={() => window.location.href = "/dashboard"} disabled={status === "loading"}>
+      <Button className="DashBtn" onClick={() => window.location.href = "/"} disabled={status === "loading"}>
         Go to Dashboard
       </Button>
     </div>

@@ -41,3 +41,15 @@
 .HorizontalItemSliderContainer > * {
     scroll-snap-align: start;
 }
+
+@media (max-width: 768px) {
+    .HorizontalItemSliderContainer {
+        padding: 0.5rem; /* Reduced padding for smaller screens */
+        gap: 1rem;
+        margin-top: 0.5rem; /* Reduced gap for smaller screens */
+    }
+    
+    .HorizontalItemSliderContainer > * {
+        min-width: 200px; /* Adjusted min-width for smaller screens */
+    }
+}

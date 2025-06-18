@@ -142,7 +142,9 @@ function ThreeDCakeViewer({
     animate();
 
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
     };
   }, []);
   function createGradientTexture(color1, color2) {
