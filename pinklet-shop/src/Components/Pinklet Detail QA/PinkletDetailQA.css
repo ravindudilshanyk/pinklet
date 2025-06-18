@@ -54,3 +54,27 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .PinkletDetailQAContainer {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .PinkletDetailQAHeader {
+        font-size: 1rem;
+    }
+    .PinkletDetailQAHeaderOpen{
+        font-size: 1rem;
+    }
+    .PinkletDetailQAContent {
+        font-size: 0.9rem;
+    }
+    .PinkletDetailQAContentOpen{
+        font-size: 0.9rem;
+    }
+    .RegsiterBtn {
+        width: 80%;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+}

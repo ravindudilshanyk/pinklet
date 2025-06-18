@@ -177,3 +177,25 @@
     color: #ffffff;
     transition: all 0.1s ease-in-out;
 }
+@media (max-width: 768px) {
+    .PinkletItemCardContainer {
+        width: 16rem;
+        height: 26rem;
+    }
+    .PinkletItemImg img {
+        object-fit: cover;
+    }
+    .PinkletCardTitle {
+        font-size: 1rem;
+    }
+    .PinkletCardPricing {
+        font-size: 0.9rem;
+    }
+    .PinkletCardTag {
+        font-size: 0.6rem;
+    }
+    .PinkletCardDeliverRateSection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

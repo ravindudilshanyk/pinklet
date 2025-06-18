@@ -14,3 +14,18 @@
     font-size: 1.4rem;
     color: var(--textSecondary);
 }
+@media (max-width: 768px) {
+    .SeveralItemsSectionContainer {
+        width: 90%;
+        height: 100vh;
+        padding: 20px;
+    }
+    .SeveralItemsSectionContainer h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .SeveralItemsSectionPara {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+}
