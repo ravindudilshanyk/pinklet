@@ -1,0 +1,80 @@
+.PinkletDetailQAContainer{
+    width: 90%;
+    height: auto;
+    margin-bottom: 3rem;
+}
+.PinkletDetailQAHeader{
+    width: 100%;
+    font-size: 1.8rem;
+    color: var(--textSecondary);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.PinkletDetailQAHeaderOpen{
+    width: 100%;
+    font-size: 1.8rem;
+    color: var(--colorPrimary);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.PinkletDetailQAContent{
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+.PinkletDetailQAContentOpen{
+    display: flex;
+    font-size: 1.1rem;
+    color: var(--textSecondary);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
+
+}
+.PinkletDetailIcon{
+    cursor: pointer;
+}
+.PinkletDetailQAContainer hr{
+    width: 100%;
+    height: 1px;
+    background-color: var(--textSecondary);
+    margin: 1rem 0;
+    border: none;
+}
+.RegsiterBtn{
+    width: 60%;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .PinkletDetailQAContainer {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .PinkletDetailQAHeader {
+        font-size: 1rem;
+    }
+    .PinkletDetailQAHeaderOpen{
+        font-size: 1rem;
+    }
+    .PinkletDetailQAContent {
+        font-size: 0.9rem;
+    }
+    .PinkletDetailQAContentOpen{
+        font-size: 0.9rem;
+    }
+    .RegsiterBtn {
+        width: 80%;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+}

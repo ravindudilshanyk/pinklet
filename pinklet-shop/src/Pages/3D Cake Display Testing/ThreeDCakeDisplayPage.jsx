@@ -32,7 +32,7 @@ function ThreeDCakeDisplayPage() {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:5159/api/CakeModel/2"
+          "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/CakeModel/1"
         );
         setCakeData(response.data);
         console.log("Cake Data:", response.data);

@@ -6,6 +6,8 @@ import CustomizerSettingsSection from "../../Components/Customizer Settings Sect
 import SingleOptionSelector from "../../Components/Single Option Selector/SingleOptionSelector";
 import CakeLayerCustomizeSection from "../../Components/Cake Layer Customize Section/CakeLayerCustomizeSection";
 import ThreeDCakeViewer from "../../Components/3D Cake Viewer/ThreeDCakeViewer";
+import NavBar from "../../Components/NavBar/NavBar";
+import ErrorBoundary from "../../Components/ErrorBoundary";
 
 function ThreeDCakeCustomizer() {
   const [openSection, setOpenSection] = useState(null);
@@ -98,7 +100,7 @@ function ThreeDCakeCustomizer() {
     console.log("Cake Data:", cakeData);
     console.log(JSON.stringify(LayerData, null, 2));
     try{
-      await axios.post("http://localhost:5159/api/CakeModel/",cakeData
+      await axios.post("https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/CakeModel/",cakeData
     ).then((response) => {
         console.log("Cake data saved successfully:", response.data);
       });
@@ -113,7 +115,8 @@ function ThreeDCakeCustomizer() {
 
   return (
     <div className="ThreeDCakeCustomizerContainer">
-      <div className="ThreeDNavBar"></div>
+      {/* <div className="ThreeDNavBar"></div> */}
+      <NavBar/>
       <div className="ThreeDCustomizerSection">
         <ThreeDCustomizerHeader />
         <div className="CustomizerSection">
@@ -263,6 +266,7 @@ function ThreeDCakeCustomizer() {
               icingType={icingType}
               LayerData={LayerData}
             />
+
           </div>
         </div>
       </div>

@@ -1,0 +1,55 @@
+.HorizontalItemSliderContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Changed from flex-start for equal height items */
+    justify-content: flex-start;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 1rem 0; /* Added padding for scrollbar space */
+    margin-top: 10vh;
+    min-height: 45vh; /* Changed from height to min-height */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #ccc #f7f7f7; /* For Firefox */
+    scroll-padding: 1rem; /* Space for scroll snapping */
+    padding-left:1rem ;
+}
+
+/* Prevent flex items from shrinking */
+.HorizontalItemSliderContainer > * {
+    flex-shrink: 0;
+}
+
+/* Webkit scrollbar styles */
+.HorizontalItemSliderContainer::-webkit-scrollbar {
+    height: 8px;
+}
+
+.HorizontalItemSliderContainer::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.HorizontalItemSliderContainer::-webkit-scrollbar-track {
+    background-color: #f7f7f7;
+}
+
+/* Optional: Snap alignment for items */
+.HorizontalItemSliderContainer > * {
+    scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+    .HorizontalItemSliderContainer {
+        padding: 0.5rem; /* Reduced padding for smaller screens */
+        gap: 1rem;
+        margin-top: 0.5rem; /* Reduced gap for smaller screens */
+    }
+    
+    .HorizontalItemSliderContainer > * {
+        min-width: 200px; /* Adjusted min-width for smaller screens */
+    }
+}

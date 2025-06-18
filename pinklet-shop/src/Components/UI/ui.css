@@ -22,6 +22,16 @@
   background-color: transparent;
   border: 1px solid var(--colorPrimary);
   color: var(--colorPrimary);
+  transition: all 0.1s ease-in-out;
+}
+
+.btnOutline:hover {
+  background-color: var(--colorSecondary);
+  color: white;
+}
+.btnPrimary:hover{
+  background-color: #76553b81;
+  color: white;
 }
 
 /* Headings */

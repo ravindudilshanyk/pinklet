@@ -1,0 +1,131 @@
+.NavBarContainer{
+    width: 100%;
+    height: 7.5vh;
+    background-color: var(--colorBackground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.NavBarLogoImg{
+    margin-left: 2rem;
+    cursor: pointer;
+}
+.NavBarLinks{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-right: 2rem;
+}
+
+.NavBarLinks a{
+    color: var(--colorPrimary);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.NavBarLinks a:hover{
+    font-size: 1.02rem;
+    font-weight: 600;
+
+}
+.NavBarLinks Button{
+    height: 2.5rem;
+    border-radius: 1.5rem;
+    width: 14rem;
+    font-size: 1rem;
+    border: 1px solid var(--colorPrimary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.NavBarLinks Button:hover{
+    background-color: #76553b81;
+    color: #ffffff;
+}
+
+.NavLinks{
+    display:flex;
+}
+.NavThreeBar{
+    display: none;
+}
+.NavBoxContainer{
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .NavLinks{
+        display: none;
+    }
+    .NavBarLinks Button{
+        display: none;
+    }
+
+    .NavBarLogoImg img{
+        width: 70%;
+        height: 70%;
+    }
+    .NavThreeBar{
+        color: var(--colorPrimary);
+        display: flex;
+        font-size: 1.5rem;
+    }
+    .NavBoxContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        background-color: transparent;
+        z-index: 999;
+    }
+    .NavBox{
+        display: flex;
+        width: 70%;
+        padding-bottom: 2rem;
+        padding-top: 1rem;
+        background-color: var(--colorBackground);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 1000;
+        border-radius: 1rem;
+    }
+
+    .NavBox a{
+        color: var(--colorPrimary);
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+    .NavBoxCloseIcon{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 1.5rem;
+        color: var(--colorPrimary);
+
+    }
+
+    .NavBox Button{
+        height: 2.5rem;
+        border-radius: 1.5rem;
+        width: 70%;
+        font-size: 0.9rem;
+        border: 1px solid var(--colorPrimary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+

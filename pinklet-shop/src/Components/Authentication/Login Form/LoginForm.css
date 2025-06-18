@@ -247,6 +247,11 @@ input[type="checkbox"]{
     background-color: var(--colorPrimary);
     color: var(--colorCard);
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .sendOTPButton{
@@ -265,8 +270,8 @@ input[type="checkbox"]{
   }
 
 .spinner {
-    width: 18px;
-    height: 18px;
+    width: 10px;
+    height: 10px;
     border: 3px solid #fff;
     border-top: 3px solid #888;
     border-radius: 50%;
@@ -382,7 +387,40 @@ input[type="checkbox"]{
     font-size: 0.9rem;
   }
   
-
+  .LogNameM{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--colorPrimary);
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;	
+  }
+  .LogNameM:hover{
+    background-color: var(--colorSecondary);
+    color: var(--colorCard);
+    transition: all 0.3s ease-in-out;
+  }
+  .LogName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--colorPrimary);
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;	
+  }
+  .LogName:hover{
+    background-color: var(--colorSecondary);
+    color: var(--colorCard);
+    transition: all 0.3s ease-in-out;
+  }
 
 @media screen and (max-width: 1024px) {
     .loginFormTitle {
@@ -412,7 +450,9 @@ input[type="checkbox"]{
       border: none;
       height: auto;
     }
-  
+    .LogNameM{
+      display: none;
+    }
     .loginFormTitle {
       font-size: 1.5rem;
       margin-bottom: 1rem;

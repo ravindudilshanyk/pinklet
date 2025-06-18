@@ -14,62 +14,57 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
+      setIsLoading(true);
       try {
-        // Get access token
         const { access_token } = tokenResponse;
-
-        // Option 1: Get user info from Google directly
         const { data: userInfo } = await axios.get(
           'https://www.googleapis.com/oauth2/v3/userinfo',
           {
-            headers: {
-              Authorization: `Bearer ${access_token}`,
-            },
+            headers: { Authorization: `Bearer ${access_token}` },
           }
         );
+    
+        const response = await axios.post('https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/google-login', userInfo);
+    
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("email", response.data.email);
+        sessionStorage.setItem("name", response.data.name);
 
-        const response = await axios.post('http://localhost:5159/api/Auth/google-login', userInfo);
-        console.log('Backend response:', response.data);
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('email', response.data.email);
-        localStorage.setItem('name', response.data.name);
-
-        navigate("/dashboard");
+        navigate("/");
       } catch (error) {
         console.error('Google login error:', error);
+      } finally {
+        setIsLoading(false);
       }
-    },
-    onError: (error) => {
-      console.error('Login Failed:', error);
-    },
+    }
+    
   });
+
   const handleLogin = async (e) => {
-    console.log("1");
     e.preventDefault();
-  
     if (!email || !password) {
       setErrorMsg("Please enter both email and password.");
       return;
     }
-    console.log("2");
+  
+    setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5159/api/Auth/login", {
+      const response = await axios.post("https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/login", {
         email,
         password,
       });
-      console.log("3");
+  
       const { token, email: userEmail, name } = response.data;
-
-      localStorage.setItem("token", token);
-      localStorage.setItem("email", userEmail);
-      localStorage.setItem("name", name);
-      
-      console.log("4");
-      navigate("/dashboard");
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("email", userEmail);
+      sessionStorage.setItem("name", name);     
+  
+      navigate("/");
     } catch (err) {
       console.error("Login error:", err);
       if (err.response && err.response.data) {
@@ -77,8 +72,11 @@ function LoginForm() {
       } else {
         setErrorMsg("Something went wrong. Please try again later.");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
+  
 
   return (
     <div className="loginFormSection">
@@ -126,8 +124,8 @@ function LoginForm() {
           </div>
 
           <div className="loginbuttonField">
-            <Button className="loginButton" type="submit">
-              Log in to My Account
+            <Button className="loginButton" type="submit" disabled={isLoading}>
+               {isLoading ? <div className="spinner"></div>:<p>Log in to My Account</p>}
             </Button>
             <div className="loginDivider">
               <hr />

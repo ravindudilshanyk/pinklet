@@ -1,0 +1,86 @@
+.PinkletDetailsSectionContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--colorBackground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.PinkletDetailsSection{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.PinkletDetailsSectionLeft{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.PinkletDetailsSectionRight{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 4rem;
+}
+.PinkletDetailsSectionTitle{
+    font-size: 1.8rem;
+    color: var(--textPrimary);
+}
+.PinkletDetailsSectionPara{
+    width: 80%;
+    font-size: 1.1rem;
+    color: var(--textSecondary);
+    margin-bottom: 3rem;
+}
+
+.PinkletDetailsSectionLeft img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.PinkletDetailsSectionContent{
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .PinkletDetailsSectionContainer {
+        width: 100%;
+        height: 100vh;
+    }
+    .PinkletDetailsSection {
+        width: 100%;
+        flex-direction: column;
+    }
+    .PinkletDetailsSectionLeft{
+        display: none;
+    } 
+    .PinkletDetailsSectionRight {
+        width: 90%;
+        height: auto;
+        margin: 0;
+    }
+    .PinkletDetailsSectionTitle {
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .PinkletDetailsSectionPara {
+        width: 100%;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}

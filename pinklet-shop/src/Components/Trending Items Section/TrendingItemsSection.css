@@ -1,0 +1,146 @@
+.TrendingItemsSection{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--colorBackground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.TrendingItemsSectionContainer{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.TrendingItemSectionLeft{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.TrendingItemSectionRight{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.TrendingItemSectionLeftContent h3{
+    font-size: 2.5rem;
+    color: var(--textPrimary);
+}
+.TrendingItemSectionLeftContent p{
+    width: 80%;
+    font-size: 1.1rem;
+    color: var(--textSecondary);
+}
+.TrendingItemSectionNavi{
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: auto;
+    align-items: center;
+    justify-content: center;
+}
+.TrendingItemSectionNaviBtn{
+   color: var(--colorPrimary);
+    font-size: 3rem;
+}
+.TrendingItemSectionNaviBtn:hover{
+    color: #76553b81;
+}
+.TrendingCardsWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: auto;
+  }
+  .PinkletCardVisible {
+    scale: 1.3;
+    z-index: 10;
+    transition: scale 0.3s ease-in-out, z-index 0.1s linear;
+}
+
+.PinkletCardHidden {
+    scale: 1.2;
+    z-index: 5;
+    transition: scale 0.3s ease-in-out, z-index 0.1s linear;
+}
+
+.PinkletCardHidden2 {
+    scale: 1.1;
+    z-index: 2;
+    transition: scale 0.3s ease-in-out, z-index 0.1s linear;
+}
+.PinkletCardVisible, .PinkletCardHidden, .PinkletCardHidden2 {
+    transform-origin: center;
+    will-change: transform, z-index;
+}
+@media (max-width: 768px) {
+    .TrendingItemsSection {
+        height: 100vh;
+    }
+  
+    .TrendingItemsSectionContainer {
+        flex-direction: column;
+        width: 95%;
+        gap: 2rem;
+    }
+  
+    .TrendingItemSectionLeft,
+    .TrendingItemSectionRight {
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .TrendingItemSectionLeftContent {
+        text-align: center;
+    }
+  
+    .TrendingItemSectionLeftContent h3 {
+        font-size: 1.5rem;
+    }
+  
+    .TrendingItemSectionLeftContent p {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+  
+    .TrendingItemSectionNavi {
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+    }
+  
+    .TrendingItemSectionNaviBtn {
+        font-size: 2.5rem;
+    }
+  
+    .TrendingCardsWrapper {
+        padding-bottom: 1rem;
+        justify-content: flex-start;
+        gap: 0;
+        overflow: hidden;
+    }
+    .PinkletCardVisible {
+        scale: 0.8;
+    }
+    
+    .PinkletCardHidden {
+        scale: 0.8;
+    }
+    
+    .PinkletCardHidden2 {
+        scale: 0.8;
+    }
+}

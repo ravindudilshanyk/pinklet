@@ -24,7 +24,7 @@ function EmailVerificationForm({ setIsOTPverified }) {
     setOTPsending(true);
     console.log("Sending OTP to:", email);
     try {
-      await axios.post("http://localhost:5159/api/Auth/fpwd", { Email: email });
+      await axios.post("https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/fpwd", { Email: email });
 
       setOTPsended(true);
       setCountdown(300);
@@ -42,7 +42,7 @@ function EmailVerificationForm({ setIsOTPverified }) {
   const handleOTPVerification = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5159/api/Auth/fpwd/verify",
+        "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/fpwd/verify",
         {
           Email: email,
           Otp: otp,
