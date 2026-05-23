@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { apiUrl } from "../../../config/runtime";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ function LoginForm() {
           }
         );
     
-        const response = await axios.post('https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/google-login', userInfo);
+        const response = await axios.post(apiUrl('/api/Auth/google-login'), userInfo);
     
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("email", response.data.email);
@@ -54,7 +55,7 @@ function LoginForm() {
   
     setIsLoading(true);
     try {
-      const response = await axios.post("https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/login", {
+      const response = await axios.post(apiUrl('/api/Auth/login'), {
         email,
         password,
       });

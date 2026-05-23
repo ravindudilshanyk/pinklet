@@ -61,6 +61,17 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+.db
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+*.sqlite
+*.sqlite3
+pinklet.db
+pinklet.db-shm
+pinklet.db-wal
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -212,6 +223,11 @@ PublishScripts/
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
+*.publishsettings
+
+# IDE metadata that should stay local
+.idea/
+.vscode/
 
 # Microsoft Azure Emulator
 ecf/

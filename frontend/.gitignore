@@ -42,6 +42,11 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Environment files
+.env
+.env.*
+!.env.example
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -127,6 +132,11 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# Vite outputs / caches
+.vite
+dist-ssr
+vite.svg
 
 # yarn v2
 .yarn/cache

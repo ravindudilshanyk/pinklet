@@ -12,6 +12,7 @@ import { BiHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { apiUrl } from "../../../config/runtime";
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ function RegisterForm() {
 
         // Send user info to backend
         const response = await axios.post(
-          "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/google-login",
+          apiUrl('/api/Auth/google-login'),
           userInfo
         );
 
@@ -162,7 +163,7 @@ function RegisterForm() {
 
     try {
       await axios.post(
-        "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/register",
+        apiUrl('/api/Auth/register'),
         {
           FirstName: formData.fName,
           LastName: formData.lName,

@@ -3,6 +3,7 @@ import axios from "axios";
 import logo from '../../assets/Logo.png'
 import "./ConfirmMailPage.css";
 import Button from "../../Components/UI/Button/Button";
+import { apiUrl } from "../../config/runtime";
 
 function ConfirmMailPage() {
   const [message, setMessage] = useState("Verifying...");
@@ -20,7 +21,7 @@ function ConfirmMailPage() {
 
     const verifyEmail = async () => {
       try {
-        const response = await axios.get(`https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/verify-email`, {
+        const response = await axios.get(apiUrl('/api/Auth/verify-email'), {
           params: { token },
         });
 

@@ -8,6 +8,7 @@ import CakeLayerCustomizeSection from "../../Components/Cake Layer Customize Sec
 import ThreeDCakeViewer from "../../Components/3D Cake Viewer/ThreeDCakeViewer";
 import NavBar from "../../Components/NavBar/NavBar";
 import ErrorBoundary from "../../Components/ErrorBoundary";
+import { apiUrl } from "../../config/runtime";
 
 function ThreeDCakeCustomizer() {
   const [openSection, setOpenSection] = useState(null);
@@ -100,7 +101,7 @@ function ThreeDCakeCustomizer() {
     console.log("Cake Data:", cakeData);
     console.log(JSON.stringify(LayerData, null, 2));
     try{
-      await axios.post("https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/CakeModel/",cakeData
+      await axios.post(apiUrl('/api/CakeModel/'),cakeData
     ).then((response) => {
         console.log("Cake data saved successfully:", response.data);
       });

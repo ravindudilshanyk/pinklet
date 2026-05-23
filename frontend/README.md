@@ -1,28 +1,23 @@
-# 🎁 Pinklet – Interactive Gift Customization Platform (Frontend)
+# Pinklet Frontend
 
-Pinklet is an interactive gift customization web application designed for **Pinklet Cakes & Café Shop**.  
-The frontend provides a visually engaging and user-friendly experience where users can customize cakes, build gift packages, manage carts, and place orders with real-time previews and pricing.
+React + Vite frontend for Pinklet.
 
----
+## Layout
 
-## 🚀 Features
+- `src/` - application code
+- `public/` - static public assets
+- `dist/` - production build output
+- `vite.config.js` - Vite configuration
+- `.env.example` - sample runtime config
 
-- 🎂 Interactive cake 3D customization interface  
-- 🎁 3D Gift package builder with real-time price updates  
-- 🛒 Shopping cart & checkout flow  
-- 👤 User authentication (JWT-based)  
-- ❤️ Wishlist & user account management  
-- ⭐ Ratings & feedback system  
+## Run
 
----
+1. Copy `.env.example` to `.env`.
+2. Set `VITE_API_BASE_URL` and `VITE_GOOGLE_CLIENT_ID`.
+3. Run `npm install`.
+4. Run `npm run dev`.
 
-## 🛠️ Tech Stack
+## Notes
 
-- **Frontend Framework:** React.js  
-- **Styling:** CSS3  
-- **HTTP Client:** Axios  
-- **Authentication:** JWT  
-- **Design Tool:** Figma  
-- **Version Control:** Git & GitHub
-
--watch demo - https://www.youtube.com/watch?v=34JQLvnK1P8
+- The frontend now lives directly in `frontend/`.
+- The old `pinklet-shop/` nesting has been flattened away.

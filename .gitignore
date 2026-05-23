@@ -1,0 +1,38 @@
+# Repo-wide generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Node / frontend build outputs
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/.vite/
+**/coverage/
+**/*.tsbuildinfo
+**/*.log
+
+# .NET build outputs
+**/bin/
+**/obj/
+**/TestResults/
+
+# Local database files
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite
+**/*.sqlite3
+
+# IDE and editor state
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

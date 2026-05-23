@@ -7,6 +7,8 @@ using pinklet.Models;
 using System.Linq;
 using System.Text;
 
+LoadDotEnvIfPresent();
+
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
@@ -27,22 +29,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    //options.UseSqlServer(
-    //    builder.Configuration.GetConnectionString("DefaultConnection"),
-    //    sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
-    //        maxRetryCount: 5,
-    //        maxRetryDelay: TimeSpan.FromSeconds(10),
-    //        errorNumbersToAdd: null
-    //    )
-    //)
-    options.UseNpgsql(
-    builder.Configuration.GetConnectionString("DefaultConnection"),
-    npgsqlOptions => npgsqlOptions.EnableRetryOnFailure(
-        maxRetryCount: 5,
-        maxRetryDelay: TimeSpan.FromSeconds(10),
-        errorCodesToAdd: null
-    )
-    )
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
 builder.Services.Configure<EmailSettings>(
@@ -78,6 +65,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<CloudinaryService>();
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.EnsureCreated();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -106,3 +99,39 @@ app.UseSwaggerUI(c => {
 app.MapControllers();
 
 app.Run();
+
+static void LoadDotEnvIfPresent()
+{
+    var candidates = new[]
+    {
+        Path.Combine(Directory.GetCurrentDirectory(), ".env"),
+        Path.Combine(AppContext.BaseDirectory, ".env")
+    };
+
+    var envFilePath = candidates.FirstOrDefault(File.Exists);
+    if (envFilePath == null)
+    {
+        return;
+    }
+
+    foreach (var rawLine in File.ReadAllLines(envFilePath))
+    {
+        var line = rawLine.Trim();
+
+        if (string.IsNullOrEmpty(line) || line.StartsWith("#") || line.StartsWith("//"))
+        {
+            continue;
+        }
+
+        var separatorIndex = line.IndexOf('=');
+        if (separatorIndex <= 0)
+        {
+            continue;
+        }
+
+        var key = line[..separatorIndex].Trim();
+        var value = line[(separatorIndex + 1)..].Trim().Trim('"');
+
+        Environment.SetEnvironmentVariable(key, value);
+    }
+}

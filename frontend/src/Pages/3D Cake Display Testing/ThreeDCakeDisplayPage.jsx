@@ -5,6 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import "./ThreeDCakeDisplayPage.css";
 import axios from "axios";
+import { apiUrl } from "../../config/runtime";
 
 function ThreeDCakeDisplayPage() {
   const [cakeData, setCakeData] = useState();
@@ -31,9 +32,7 @@ function ThreeDCakeDisplayPage() {
     const fetchCakeData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/CakeModel/1"
-        );
+        const response = await axios.get(apiUrl('/api/CakeModel/1'));
         setCakeData(response.data);
         console.log("Cake Data:", response.data);
         loadModels();

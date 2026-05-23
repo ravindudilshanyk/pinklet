@@ -1,28 +1,25 @@
-# 🎁 Pinklet – Interactive Gift Customization Platform (Frontend)
+# Pinklet Backend
 
-Pinklet is an interactive gift customization web application designed for **Pinklet Cakes & Café Shop**.  
-The frontend provides a visually engaging and user-friendly experience where users can customize cakes, build gift packages, manage carts, and place orders with real-time previews and pricing.
+ASP.NET Core API for Pinklet.
 
----
+## Layout
 
-## 🚀 Features
+- `Controllers/` - API endpoints
+- `Models/` - entity and DTO classes
+- `data/` - database context
+- `Services/` - infrastructure services
+- `Migrations/` - EF Core migrations
+- `Program.cs` - app startup
+- `.env.example` - sample runtime config
 
-- 🎂 Interactive 3D cake customization interface  
-- 🎁 3D Gift package builder with real-time price updates  
-- 🛒 Shopping cart & checkout flow  
-- 👤 User authentication (JWT-based)  
-- ❤️ Wishlist & user account management  
-- ⭐ Ratings & feedback system  
+## Run
 
----
+1. Copy `.env.example` to `.env`.
+2. Set the local connection string and secrets.
+3. Run `dotnet restore`.
+4. Run `dotnet run`.
 
-## 🛠️ Tech Stack
+## Notes
 
-- **Frontend Framework:** React.js  
-- **Styling:** CSS3  
-- **HTTP Client:** Axios  
-- **Authentication:** JWT  
-- **Design Tool:** Figma  
-- **Version Control:** Git & GitHub  
-
-Watch Demo - https://www.youtube.com/watch?v=34JQLvnK1P8
+- The backend now lives directly in `backend/`.
+- The old `pinklet/` nesting has been flattened away.

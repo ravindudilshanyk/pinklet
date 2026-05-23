@@ -6,6 +6,7 @@ import "../Login Form/LoginForm.css";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { BiShow, BiHide } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../../../config/runtime";
 
 function PasswordResetForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +68,7 @@ function PasswordResetForm() {
 
     try {
       const response = await axios.post(
-        "https://pinklet20250616095532-e9esbjhtfbbhfrfe.canadacentral-01.azurewebsites.net/api/Auth/fpwd/reset",
+        apiUrl('/api/Auth/fpwd/reset'),
         {
           Email: email,
           Password: password,
